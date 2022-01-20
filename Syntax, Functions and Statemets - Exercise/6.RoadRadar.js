@@ -1,0 +1,30 @@
+function radar(speed,area){
+    let limit = 0;
+
+    if(area == 'motorway'){
+        limit = 130;
+    }else if(area == 'interstate'){
+        limit = 90;
+    }else if(area == 'city'){
+        limit = 50;
+    }else if(area == 'residential'){
+        limit = 20;
+    }
+
+    let diference = speed - limit;
+    let status;
+
+    if(diference >= 1 && diference <=20){
+        status = 'speeding';
+    }else if(diference>20 && diference<=40){
+        status = 'excessive speeding';
+    }else if(diference > 40){
+        status = 'reckless driving';
+    }
+
+    if(speed<=limit){
+        console.log(`Driving ${speed} km/h in a ${limit} zone`);
+    }else{
+        console.log(`The speed is ${diference} km/h faster than the allowed speed of ${limit} - ${status}`);
+    }
+}
